@@ -70,9 +70,6 @@ RUN ckan-pip3 install -U pip && \
     chmod +x /ckan-entrypoint.sh && \
     chown -R ckan:ckan $CKAN_HOME $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH
 
-RUN cd $CKAN_HOME/src \
-    git clone https://github.com/flaviofrancisco/ckanext-doi.git
-
 FROM base AS test
 RUN ckan-pip3 install -r $CKAN_VENV/src/ckan/dev-requirements.txt && \
     ckan-pip3 install pytest-ckan && \
